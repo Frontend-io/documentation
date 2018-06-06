@@ -101,7 +101,7 @@ curl https://api.paystack.co/transaction/initialize \
      -X POST
 ```
 
-### Transaction Charges
+### Bearer of Paystack Charge
 
 You can use which party bears the Paystack charges when making a split payment between the main account and the subaccount. By default, the charges are borne by the main account. To change this to the subaccount, pass a parameter `bearer: "subaccount"` on intializing a transaction.
 
