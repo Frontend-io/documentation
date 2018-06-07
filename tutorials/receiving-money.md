@@ -1,18 +1,16 @@
 # Receiving Money
 
-## Receiving money.
+## Typical Payment Request.
 
 Here is the typical API request to initialize a transaction.
 
-```Curl
+```
 curl https://api.paystack.co/transaction/initialize \
 -H "Authorization: Bearer SECRET_KEY" \
 -H "Content-Type: application/json" \
 -d '{"amount": 500000, "email": "customer@email.com"}' \
 -X POST
 ```
-
-
 
 ### Payment Parameters
 
@@ -26,7 +24,7 @@ You can add a reference to the request body which you use to identify this trans
 
 The amount values that you pass to Paystack must be in kobo. To convert a Naira value to kobo, multiply by 100. So if you wanted to charge N100, the amount value to send will be 10000.
 
-###**Metadata**
+###Adding Extra Information to the Payment Request
 
 Sometimes you want to pass extra information to your transaction. The initialization request body accepts a metadata object in which you can add other information you want. You can pass the object directly into the metadata. You can also use custom_fields array within the metadata. Custom fields is an array of objects. The values you pass in the custom_fields array will displayed in the transaction details on the Paystack dashboard.
 
@@ -77,12 +75,14 @@ For example, if a payment is successful, the response status will be true, and t
 
 - The most common mistake people make is not including the Authorization Header. All API requests on Paystack are authenticated with your secret key. Format is `Authorization: "Bearer YOUR_SECRET_KEY"`  Don’t forget the `Bearer` keyword
 - Amount value is in Kobo. Always remember to multiply the Naira value of the amount by 100. So if you want to charge N100, you will pass amount as `100*100 = 10000`.
-- Calls to the Paystack API cannot be made from your frontend, only from your server.
+- Calls to the Paystack API should not be made from your frontend, only from your server. This is because your secret key should never be exposed publicly. It can be used to access sensitive information on your Paystack account. The public key can only be used to initialize transactions on the Javascript inline.
 - Ensure to call the verify function from your callback function (for frontend implementation) or your callback URL/route (for standard redirect implementation). Only when control has been passed to your callback can you be certain that the user has completed payment. If you try to do a long pool to the verify endpoint, you will keep getting abandoned status until the user has completed the payment.
 
-###USECASE - Simple online Store
+##USECASE  
 
-### 
+###Simple online Store
+
+
 
 ## Payment Channels
 
