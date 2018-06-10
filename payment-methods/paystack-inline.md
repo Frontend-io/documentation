@@ -1,6 +1,6 @@
 # Paystack Inline
 
-Paystack Inline offers a simple, secure and convenient payment flow for web and mobile. It can be integrated with a few lines of code thereby making it the easiest way to start accepting payments. It also makes it possible to start and end the payment flow on the same page using a modal, thus combating redirect fatigue.
+Paystack Inline offers a simple, secure and convenient payment flow for web. It can be integrated with a few lines of code thereby making it the easiest way to start accepting payments. It also makes it possible to start and end the payment flow on the same page using a modal, thus combating redirect fatigue.
 
 ## Implementation
 
@@ -19,7 +19,7 @@ Here is a sample below:
     var handler = PaystackPop.setup({
       key: 'pk_test_86d32aa1nV4l1da7120ce530f0b221c3cb97cbcc',
       email: 'customer@email.com',
-      amount: 10000,
+      amount: 10000, //amount is passed in kobo. Multiply by 100 to pass a Naira amount
       ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
       metadata: {
          custom_fields: [
