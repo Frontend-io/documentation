@@ -2,7 +2,7 @@
 
 ## Typical Payment Request.
 
-Here is the typical API request to initialize a transaction.
+Here is the typical API request to [initialize a transaction](https://developers.paystack.co/v2.0/reference#initialize-a-transaction).
 
 ```
 curl https://api.paystack.co/transaction/initialize \
@@ -12,23 +12,25 @@ curl https://api.paystack.co/transaction/initialize \
 -X POST
 ```
 
+Transactions can be initialised via different payment methods - Paystack Inline, Paystack Standard and Paystack Charge*.
+
 ### Payment Parameters
 
-The most important fields in the request body are the amount to be charged and the customer email.
+The most important fields in the request body are the `amount` to be charged and the customer `email`.
 
-If your application does not require customer emails, you can generate an email for the transaction with any unique identifier from your system like phone number or customer id: 0801245679@yoursite.com or j239dj3hn9393@yourapp.com.
+If your application does not require customer emails, you can generate an `email` for the transaction with any unique identifier from your system like phone number or customer id: 08001234567@yoursite.com or j239dj3hn9393@yourapp.com.
 
-It is helpful if the identifier is unique to the customer for all transactions by the customer so that you can track the customer transaction history on your paystack dashboard.
+The identifier should be unique to the customer for all their transactions so that you can track the customer transaction history on your Paystack dashboard.
 
-You can add a reference to the request body which you use to identify this transaction on your own system. If you don't send a reference, Paystack will generate one for you for that transaction. Also transaction references must be unique for each transaction, otherwise you will get a Duplicate transaction error.
+You can add a `reference` to the request body which you use to identify this transaction on your own system. If you don't send a reference, Paystack will generate one for you for that transaction. Also transaction references must be unique for each transaction, otherwise you will get a "Duplicate transaction" error.
 
-The amount values that you pass to Paystack must be in kobo. To convert a Naira value to kobo, multiply by 100. So if you wanted to charge N100, the amount value to send will be 10000.
+The `amount` values that you pass to Paystack must be in kobo. To convert a Naira value to kobo, multiply by 100. So if you wanted to charge N100, the amount value to send will be 10000.
 
 ###Adding Extra Information to the Payment Request
 
-Sometimes you want to pass extra information to your transaction. The initialization request body accepts a metadata object in which you can add other information you want. You can pass the object directly into the metadata. You can also use custom_fields array within the metadata. Custom fields is an array of objects. The values you pass in the custom_fields array will displayed in the transaction details on the Paystack dashboard.
+Sometimes you want to pass extra information to your transaction. The initialization request body accepts a `metadata` object in which you can add other information you want. You can pass the object directly into the `metadata`. You can also use `custom_fields` array within the metadata. Custom fields is an array of objects. The values you pass in the `custom_fields` array will displayed in the transaction details on the Paystack Dashboard and on the customer's receipt.
 
-A transaction initialization object with metadata will look like this:
+A transaction initialization object with `metadata` will look like this:
 
 ```JSON
 {
@@ -53,11 +55,9 @@ A transaction initialization object with metadata will look like this:
 }
 ```
 
-
-
 ### Response Structure
 
-A typical Paystack Response object (response) contains:
+A typical Paystack response object (response) contains:
 
 - status
 - message
@@ -69,20 +69,16 @@ If the response status is true, the response object will contain a **data** fiel
 
 For example, if a payment is successful, the response status will be true, and the response data status will be success. If the payment fails, the response status will be true and the response data status will be false. The data also contains the rest of the response for the request you made.
 
-
-
 ### Common Errors
 
-- The most common mistake people make is not including the Authorization Header. All API requests on Paystack are authenticated with your secret key. Format is `Authorization: "Bearer YOUR_SECRET_KEY"`  Don’t forget the `Bearer` keyword
-- Amount value is in Kobo. Always remember to multiply the Naira value of the amount by 100. So if you want to charge N100, you will pass amount as `100*100 = 10000`.
-- Calls to the Paystack API should not be made from your frontend, only from your server. This is because your secret key should never be exposed publicly. It can be used to access sensitive information on your Paystack account. The public key can only be used to initialize transactions on the Javascript inline.
+- The most common mistake people make is not including the Authorization Header. All API requests on Paystack are authenticated with your secret key. Format is `Authorization: "Bearer YOUR_SECRET_KEY"`  Don’t leave out the `Bearer` keyword
+- `amount` value is in kobo. Always remember to multiply the Naira value of the amount by 100. So if you want to charge N100, you will pass amount as `100*100 = 10000`.
+- Calls to the Paystack API **should not be made from your frontend**, only from your server. This is because your secret key should never be exposed publicly. It can be used to access sensitive information on your Paystack account. The public key can only be used to initialize transactions on the Javascript Paystack Inline payment method.
 - Ensure to call the verify function from your callback function (for frontend implementation) or your callback URL/route (for standard redirect implementation). Only when control has been passed to your callback can you be certain that the user has completed payment. If you try to do a long pool to the verify endpoint, you will keep getting abandoned status until the user has completed the payment.
 
-##USECASE  
+### Use Case
 
-###Simple online Store
-
-
+- An online store
 
 ## Payment Channels
 
@@ -91,20 +87,18 @@ Paystack provides various payment channels to allow merchant receive payment fro
 Currently we have
 
 - Pay with Card
-- Pay with bank - this allows users complete payments using their Nigerian bank accounts
+- Pay with Bank - this allows users complete payments using their Nigerian bank accounts
 - Pay with USSD
-- Pay with Ghana mobile money.
+- Pay with Ghana Mobile Money.
 
 The purpose of multiple channels is to allow the users complete payments using any of the channels in case any of them is down.
 
 You can enable or disable any of these Payment channels on your **Dashboard >> Settings >> Preferences**.
 
-### Best Practices
+## Best Practices
 
 * If you intend to charge recurring payments, it's best to enable only card payments, as other payment channels don't currently support reccuring billing.
 * If your transaction amounts are always high, it's best to only allow card payment as other channels may not be able to processs very high transaction amounts. Their failures may affect your payment success rate numbers.  
-
-
 
 ## Split Payments
 
@@ -116,9 +110,9 @@ For example, if your business has a multiple products and you want a percentage 
 
 Another great use case is marketplace sites with multiple vendors. Subaccounts can be used to represent each vendor and their products.
 
-###Sub-accounts 
+###Subaccounts 
 
-As the name implies, a sub-account is an account within your main Paystack account that represent a separate class of payment. Whenever a sub-account is created, a sub-account code is generated. Including that sub-account code in any transaction instructs Paystack that this sub-account gets some or all of the payment made for that transaction, as defined in the split percentage while creating the sub-account. Sometimes no money is paid into the sub-account, when the sub-accounts are simply used to separate transactions into different sub-accounts and all the money still goes into same bank account.  On your Paystack Dashboard, you can filter transactions by each sub-account to see all the payments made for each sub-account product.
+As the name implies, a subaccount is an account within your main Paystack account that represent a separate class of payment. Whenever a sub-account is created, a sub-account code is generated. Including that sub-account code in any transaction instructs Paystack that this sub-account gets some or all of the payment made for that transaction, as defined in the split percentage while creating the sub-account. Sometimes no money is paid into the sub-account, when the sub-accounts are simply used to separate transactions into different sub-accounts and all the money still goes into same bank account.  On your Paystack Dashboard, you can filter transactions by each sub-account to see all the payments made for each sub-account product.
 
 ####**Creating a Subaccount**
 
@@ -179,8 +173,6 @@ So a typical split payment transaction initialization object will look something
 }
 ```
 
-
-
 ####Settlement
 
 Paystack settles subaccounts automatically everyday into the settlement bank account provided when creating the subaccounts. The amount for the main accounts are settled according to the settlement schedule set on the settlement account (Next day settlement/manual settlement).
@@ -191,7 +183,7 @@ Subaccounts are mostly used by companies that have separate branches/outlets and
 
 You cannot use subaccounts created in test mode with your live keys and vice versa.
 
-###USE CASE - MULTIVENDOR STORE
+###Use Case
 
 ## Recurring Payments
 
@@ -261,3 +253,5 @@ The response includes a subscription code, the next payment date and an email to
 When a subscription is due, Paystack sends a notification email to the customer 3 days to the due date. The email also contains a link to cancel the subscription if the customer wants to opt out. If the subscription is not cancelled before the due date, Paystack charges the customer’s card and sends a event to your webhook url to notify your application of the charge. You can then update the user's account on your end.
 
 ### USE CASE - Simple investment app. 
+
+<sub>The charge endpoint requires your servers to be PCI-DSS compliant.</sub>
