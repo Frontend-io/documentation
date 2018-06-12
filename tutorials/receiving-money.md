@@ -53,6 +53,28 @@ A transaction initialization object with `metadata` will look like this:
 }
 ```
 
+####Adding Custom Filters
+
+Custom Filters allow you to set some preferences on the checkout form. For example, you can decide to receive only certain card types on the **Pay With Card** channel. If you were building an application that requires recurring debit, you can choose to allow customers enter only cards that support recurring debit. For **Pay With Bank**, you can choose to accept only certain banks by passing thier bank codes ([here is how to get list of banks and their bank codes][https://developers.paystack.co/reference#list-banks]).
+
+These settings are passed in the **custom_filters** object passed in the **metadata**. Using custom filters, your **metadata** will look something like this:
+
+```
+{
+    email: 'your@email.com',
+    amount: 10000,
+    metadata: {
+        custom_filters: {
+            recurring: true,	//only accept cards that support recurring debit
+            banks: ['057', '100'],  // bank codes to accept in Pay with Bank Channel
+         	card_brands: ["mastercard", "visa"] //only accept mastercard and visa cards
+        }
+    }
+}
+```
+
+ 
+
 ### Response Structure
 
 A typical Paystack response object (response) contains:
