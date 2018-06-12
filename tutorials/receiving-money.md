@@ -3,7 +3,6 @@
 ## Typical Payment Request.
 
 Here is the typical API request to [initialize a transaction](https://developers.paystack.co/v2.0/reference#initialize-a-transaction).
-
 ```
 curl https://api.paystack.co/transaction/initialize \
 -H "Authorization: Bearer SECRET_KEY" \
@@ -11,8 +10,7 @@ curl https://api.paystack.co/transaction/initialize \
 -d '{"amount": 500000, "email": "customer@email.com"}' \
 -X POST
 ```
-
-Transactions can be initialised via different payment methods - Paystack Inline, Paystack Standard and Paystack Charge*.
+Transactions can be initialised via different payment methods - Paystack Inline, Paystack Standard.
 
 ### Payment Parameters
 
@@ -253,5 +251,3 @@ The response includes a subscription code, the next payment date and an email to
 When a subscription is due, Paystack sends a notification email to the customer 3 days to the due date. The email also contains a link to cancel the subscription if the customer wants to opt out. If the subscription is not cancelled before the due date, Paystack charges the customer’s card and sends a event to your webhook url to notify your application of the charge. You can then update the user's account on your end.
 
 ### USE CASE - Simple investment app. 
-
-<sub>The charge endpoint requires your servers to be PCI-DSS compliant.</sub>
