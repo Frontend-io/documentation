@@ -36,9 +36,9 @@ Here is a recap of how to handle the event.
 
 ###Code Samples
 
-###Types of events
+###Paystack Event Triggers
 
-Here are the events we currently raise. We would add more to this list as we hook into more actions in the future.
+Here are the events we currently trigger. We would add more to this list as we hook into more actions in the future.
 
 `subscription.create` - A subscription has been created
 
@@ -255,3 +255,11 @@ Here are the events we currently raise. We would add more to this list as we hoo
   }
 }
 ```
+
+### Webhook Best Practices
+
+- Ensure that your webhook route is not a protected route or require authentication
+- Respond to the webhook before processing. To avoid the webhook being resent multiple times, and also avoid the possibility of a code error responding with a `500` status.
+- When you receive any `success` event, always check to ensure that value hasn't been delivered during the API call that triggered the event or by a previous event. 
+- Ensure your environment configurations are not blocking or truncating the events.
+- Make sure the event body is not preprocessed in anyway before doing the hash check to avoid hash mismatch. Preprocessing may change some parts of the event, like URL encoding, and this will lead to the hash producing different values.
