@@ -1,6 +1,6 @@
 # Paystack Redirect
 
-Paystack Redirect payment method provides an authorization URL which can be used to complete a payment. It is called by directly calling the [initialize transaction](https://developers.paystack.co/v1.0/reference#initialize-a-transaction) endpoint. The URL generated is valid for one time use, so ensure that you generate a new URL per transaction.
+Paystack Redirect payment method provides an authorization URL which can be used to complete a payment. It is called by directly calling the [initialize transaction](https://developers.paystack.co/v1.0/reference#initialize-a-transaction) endpoint. The Authorization URL can only be used for one transaction. You will need to generate a new authorization url for a new transaction.
 
 When the payment is successful, we will call your callback URL (as setup in your dashboard or while initializing the transaction) and return the reference sent in the first step as a query parameter.
 
@@ -12,7 +12,7 @@ If you use a test secret key, we will call your test callback url, otherwise, we
 
 2. **Prepare your parameters**:
 
-   `email` and `amount` are the most common compulsory parameters. Do send a unique email per customer. If your customers do not provide a unique email, please devise a strategy to set one for each of them. The amount we accept on all endpoint are in kobo and must be an integer value. For instance, to accept 456 naira, 78 kobo, please send 45678 as the `amount`.
+   `email` and `amount` are the most common compulsory parameters. Do send a unique email per customer. If your customers do not provide a unique email, please devise a strategy to set one for each of them. For example, using their phone numbers 08001234567@yoursite.com. The amount we accept on all endpoint are in kobo and must be an integer value. For instance, to accept 456 naira, 78 kobo, please send 45678 as the `amount`.
 
    ```php
    curl https://api.paystack.co/transaction/initialize \
@@ -32,6 +32,6 @@ If you use a test secret key, we will call your test callback url, otherwise, we
 
    Before you give value to the customer, please make a server-side call to our verification endpoint (which should be your callback URL) to confirm the status and properties of the transaction.
 
-4. Handle `charge.success` event: We will post a `charge.success` event to the webhook URL set for your transaction's domain. If it was a live transaction, we will post to your live webhook url and vice-versa.
+4. Handle `charge.success` event: We will post a `charge.success` event to the webhook URL set for your transaction's domain. If it was a live transaction, we will post to your live webhook url and if it is a test transaction, we will post to your test webhook url.
 
    For more information on this, please see [Events](https://developers.paystack.co/v1.0/docs/events).
