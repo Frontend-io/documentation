@@ -33,16 +33,7 @@ We provide 2 sets of keys - the **test** keys and the **live** keys. The **test*
 
 When you are ready to charge the user, you send the transaction parameters to Paystack to initialize the transaction. 
 
-The parameters needed to initialize a transaction include:
-
-1. 1. **Customer’s email**
-   2. **Amount** in kobo (Naira value * 100)
-   3. **Transaction reference** on your system - if you do not send a reference, Paystack will generate one for this transaction.
-   4. **Callback URL** - This is needed when you’re using the API on your backend. This is the URL you want the user to be redirected to after a successful payment. By default, the Callback URL set on the dashboard is used, but you can override that by setting one here. For the Javascript libraries, you use **Callback Function.** After the payment is complete, the Paystack checkout hands control over to the callback function.
-
-These parameters are set in the **Transaction Initialization Object** passed to the API or the Javascript initialization methods. [You can find all the other parameters that you can set on transaction initialization here](https://developers.paystack.co/v1.0/reference#initialize-a-transaction).
-
-For mobile, please 
+These parameters are set in the **Transaction Initialization Object** passed to the API or the Javascript initialization methods. [Learn about all the transaction initialization parameters here](https://developers.paystack.co/v1.0/reference#initialize-a-transaction).
 
 **CURL:** [Try it here](https://developers.paystack.co/v1.0/reference#initialize-a-transaction)
 
@@ -150,7 +141,7 @@ After the transaction is initialized, Paystack checkout form is loaded so the us
 
 ##Step 4 - Verify Transaction and Deliver Value
 
-After the user has paid, you should make an API call to Paystack's `verify` endpoint using the transaction reference to confirm that the transaction was completed successfully. If you're integrating from your web server, the user will be redirected back to your callback URL, you can call the `verify` endpoint on the callback URL. If you're integrating on mobile app or using the javascript library, you have to set up a route on your server which you'll call from your callback function and then from there, you will call the Paystack `verify` endpoint.
+After the user has paid, you should make an API call from your server to Paystack's `verify` endpoint using the transaction reference to confirm that the transaction was completed successfully. 
 
 [Here is the curl command to verify transaction:](https://developers.paystack.co/v1.0/reference#verify-transaction)
 
@@ -159,7 +150,7 @@ curl https://api.paystack.co/transaction/verify/YOUR_TRANSACTION_REFERENCE \
 -H "Authorization: Bearer SECRET_KEY"
 ```
 
-The response contains a `data` object which contains the transaction status in `data->status`, and contains the status message in  `data->gateway_response`. The status can either be `success` for when the payment was made successfully, `failed ` for when the payment failed, and `abandoned` for when the user didn't complete the transaction. The `gateway_response` describes the `status`.
+The response contains a `data` object which contains the transaction status in `data->status`. 
 
 The `data` object also contains an object called `authorization` which has the `authorization_code` for the payment instrument the customer paid with which you can store against the user to be used to charge the users subsequently. Learn more at [Recurring Payment Quickstart](https://developers.paystack.co/docs/recurring-quickstart).
 
