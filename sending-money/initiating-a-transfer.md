@@ -1,10 +1,10 @@
 Paystack allows you to send money to any Nigerian Bank account using our **Transfers** APIs. You can initiate both single and bulk transfers. Here are the steps.
 
-Step 1: Get your **Secret Key**
-Step 2: Collect and **verify the Account Number**
-Step 3: Create a **Transfer Recipient**
-Step 4: Initiate **Transfer**
-Step 5: Listen for **Transfer status notification**
+- Step 1: Get your **Secret Key**
+- Step 2: Collect and **verify the Account Number**
+- Step 3: Create a **Transfer Recipient**
+- Step 4: Initiate **Transfer**
+- Step 5: Listen for **Transfer status notification**
 
 ## Get Your Secret Key
 All transfer related API requests are to be done from your server, using a **secret key**. Your dashboard has both a **test secret key** that you can use while developing, and a **live secret key** that you use for live transactions. You can [get your secret key from the API Key section your dashboard settings](https://dashboard.paystack.com/#/settings/developers). 

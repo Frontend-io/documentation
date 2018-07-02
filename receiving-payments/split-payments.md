@@ -5,8 +5,9 @@ An ideal scenario for this feature will be a marketplace platform that sells goo
 At the moment, payments can only be split across two accounts.
 
 Implementing split payments involve:
-[Step 1: Creating a subaccount](https://developers.paystack.co/v2.0/docs/split-payments#section-creating-a-subaccount)
-[Step 2: Initialize a split payment](https://developers.paystack.co/v2.0/docs/split-payments#section-initialize-a-split-payment)
+
+- [Step 1: Creating a subaccount](https://developers.paystack.co/v2.0/docs/split-payments#section-creating-a-subaccount)
+- [Step 2: Initialize a split payment](https://developers.paystack.co/v2.0/docs/split-payments#section-initialize-a-split-payment)
 
 ## Creating a subaccount
 Subaccounts can be created [via the Paystack Dashboard](https://dashboard.paystack.com/#/subaccounts) or [via the Paystack API](https://developers.paystack.co/v1.0/reference#create-subaccount).  When a subaccount is created, the `subaccount_code` and the `account_name` is returned. Please endeavor to verify that the bank account details matches what you intended. Paystack will not be liable for payouts to the wrong bank account.

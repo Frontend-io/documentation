@@ -5,10 +5,11 @@ When the payment is successful, we will call your callback URL (as setup in your
 If you use a test secret key, we will call your test callback url, otherwise, we'll call your live callback url.
 
 To implement this payment method,
-[Step 1: Collect customer information](https://developers.paystack.co/v2.0/docs/paystack-redirect#section-collect-customer-information)
-[Step 2: Initialize transaction](https://developers.paystack.co/v2.0/docs/paystack-redirect#section-initialize-transaction)
-[Step 3: Verify transaction](https://developers.paystack.co/v2.0/docs/verifying-transaction)
-Step 4: Handle webhook
+
+- [Step 1: Collect customer information](https://developers.paystack.co/v2.0/docs/paystack-redirect#section-collect-customer-information)
+- [Step 2: Initialize transaction](https://developers.paystack.co/v2.0/docs/paystack-redirect#section-initialize-transaction)
+- [Step 3: Verify transaction](https://developers.paystack.co/v2.0/docs/verifying-transaction)
+- Step 4: Handle webhook
 
 ## Prerequisites
 Confirm that your server can conclude a TLSv1.2 connection to Paystack's servers. Most up-to-date software have this capability. Contact your service provider for guidance if you have any SSL errors.

@@ -4,10 +4,10 @@ Once a customer has paid you successfully, we send you an authorization code tha
 
 Here are the steps for charging an authorization to make a recurring debit happen:
 
-Step 1: Initialize first transaction
-Step 2: Confirm that the authorization is reusable
-Step 3: Store the authorization and email against the user
-Step 4: Charge the authorization
+- Step 1: Initialize first transaction
+- Step 2: Confirm that the authorization is reusable
+- Step 3: Store the authorization and email against the user
+- Step 4: Charge the authorization
 
 ## Initialize first transaction
 Initialize a transaction where the user will make a payment for the first time. 

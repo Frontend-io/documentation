@@ -3,11 +3,12 @@ Paystack Pop offers a simple, secure and convenient payment flow for web. It can
 ## Implementation
 
 To implement Paystack Pop, follow the following steps
-[Step 1: Collect customer information](https://developers.paystack.co/v2.0/docs/paystack-popup#section-step-1-collect-customer-information)
-[Step 2: Initialize transaction](https://developers.paystack.co/v2.0/docs/paystack-popup#section-step-2-initialize-transaction)
-[Step 3: Implement transaction callback.](https://developers.paystack.co/v2.0/docs/paystack-popup#section-step-3-implement-transaction-callback-)
-[Step 4: Verify transaction](https://developers.paystack.co/v2.0/docs/verifying-transaction)
-Step 5: Handle webhook
+
+- [Step 1: Collect customer information](https://developers.paystack.co/v2.0/docs/paystack-popup#section-step-1-collect-customer-information)
+- [Step 2: Initialize transaction](https://developers.paystack.co/v2.0/docs/paystack-popup#section-step-2-initialize-transaction)
+- [Step 3: Implement transaction callback.](https://developers.paystack.co/v2.0/docs/paystack-popup#section-step-3-implement-transaction-callback-)
+- [Step 4: Verify transaction](https://developers.paystack.co/v2.0/docs/verifying-transaction)
+- Step 5: Handle webhook
 
 ### Collect customer information
 To charge the customer, first collect information such as email, amount, etc. Email and amount are required for a transaction to occur.

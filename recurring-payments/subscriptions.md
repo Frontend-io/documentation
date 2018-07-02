@@ -2,9 +2,9 @@ Subscriptions allow customers to pay a specific amount every hour, day, week, mo
 
 Here is how to set up a subscription:
 
-Step 1: Create a Plan
-Step 2: Initiate a subscription payment
-Step 3: Listen for subscription payments
+- Step 1: Create a Plan
+- Step 2: Initiate a subscription payment
+- Step 3: Listen for subscription payments
 
 ## Create a Plan
 
