@@ -51,7 +51,7 @@ CVV: 000
 ```
 
 ## Cards failing with error message
-###Insufficient Balance
+### Insufficient Balance
 ```
 Make any payment where amount > N500,000
 ```

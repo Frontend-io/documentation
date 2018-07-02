@@ -53,7 +53,8 @@ The meta key is used to provide context for the contents of the data key. For in
     "perPage": 50,
     "page": 1,
     "pageCount": 1
-}```
+}
+```
 
 **Total** is a total number of transactions that were performed by the customer.
 **Skipped** is the number of records skipped before the first record in the array returned. 
