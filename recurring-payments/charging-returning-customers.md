@@ -1,3 +1,5 @@
+# Charging returning customers
+
 Paystack offers a simple way to take recurring debits from cards.  
 
 Once a customer has paid you successfully, we send you an authorization code that you can save and use to send payments anytime you need to charge the customer. 

@@ -1,3 +1,5 @@
+# Initiating a transfer
+
 Paystack allows you to send money to any Nigerian Bank account using our **Transfers** APIs. You can initiate both single and bulk transfers. Here are the steps.
 
 - Step 1: Get your **Secret Key**

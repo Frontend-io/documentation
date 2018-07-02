@@ -1,3 +1,5 @@
+# Using Popup
+
 Paystack Pop offers a simple, secure and convenient payment flow for web. It can be integrated with a few lines of code thereby making it the easiest way to start accepting payments. It also makes it possible to start and end the payment flow on the same page using a modal, thus combating redirect fatigue.
 
 ## Implementation

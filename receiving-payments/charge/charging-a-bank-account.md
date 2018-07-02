@@ -1,3 +1,5 @@
+#Charging a Bank Account
+
 The  Pay with Bank feature allows your customers pay you by providing their bank account number and an OTP sent to their phone. In the case of GTB, your customers will be shown the ibank interface to conclude payment.
 
 Collect your customer's bank account number directly to start a Pay With Bank transaction. In test mode, use one of our test bank accounts to test. 

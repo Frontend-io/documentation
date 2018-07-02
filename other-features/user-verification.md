@@ -1,3 +1,5 @@
+# User Verification
+
 Paystack provides a number of tools that help you verify user information. Here's a list of identification and verification tools that Paystack currently provides:
 
 1. BVN Verification

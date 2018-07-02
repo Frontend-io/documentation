@@ -1,3 +1,5 @@
+# Payment Methods
+
 **Before you begin**
 
 To receive payments on Paystack, you need API keys to authenticate your payments. You can find your keys on the Paystack Dashboard under [Settings → API Keys & Webhooks](https://dashboard.paystack.com/#/settings/developer). To learn more about API keys, click here.

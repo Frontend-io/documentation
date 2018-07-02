@@ -1,3 +1,5 @@
+# Charging via USSD
+
 The Pay via USSD channel allows your customers to pay you by dialling a USSD code on their mobile device. This code is usually in the form of * followed by some code and ending with #. The user is prompted to authenticate the transaction with a PIN and then it is confirmed.
 
 All you need to initiate a USSD charge is the customer email and the amount to charge.  

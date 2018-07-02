@@ -1,3 +1,5 @@
+# Introduction
+
 Start receiving one time and recurring payments in your website or application right away. Within a few minutes you can integrate Paystack into any application using our libraries, plugins or APIs. 
 
 ## Receiving Payments

@@ -1,3 +1,5 @@
+# Subscriptions
+
 Subscriptions allow customers to pay a specific amount every hour, day, week, month, or year depending on the recurring interval you set. With subscriptions, you only need to initialize the first payment, and Paystack will handle the renewals when they are due.
 
 Here is how to set up a subscription:
@@ -78,13 +80,13 @@ function payWithPaystack(e) {
 
 A second way to create subscriptions is to run the [create subscription endpoint](https://developers.paystack.co/v2.0/reference#create-subscription) via the Paystack API. This can only be used when the customer must have paid on your business before as it requires a `customer` code and `authorisation`. If an `authorisation` exists but is not passed as a parameter, Paystack picks the most recent `authorization` to charge.
 
-     ```
- curl https://api.paystack.co/subscription \
+```
+curl https://api.paystack.co/subscription \
      -H "Authorization: Bearer SECRET_KEY" \
      -H "Content-Type: application/json" \
      -d '{"customer": "CUS_xnxdt6s1zg1f4nx", "plan": "PLN_gx2wn530m0i3w3m"}' \
      -X POST
-     ```
+```
 The response returned include `subscription_code`, `next_payment_date` and `email_token`. The email token and subscription are used to [cancel the subscription](https://developers.paystack.co/v2.0/reference#disable-subscription).
 
 Subscriptions are not retried. When a payment attempt fails, it will not be attempted again. This makes subscriptions more ideal for situations where value is delivered after payment such as payment for internet service or a streaming service. Where if payment fails, value is held till customer pays successfully via a one-time payment.

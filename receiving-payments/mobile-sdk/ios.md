@@ -1,3 +1,5 @@
+# iOS
+
 If you want to build mobile apps like [Taxify](http://www.taxify.eu), [Afro](http://www.getafrocab.com), [Okada Books](https://www.okadabooks.com) and enable people to make purchases directly in your app, our iOS and [Android](https://github.com/PaystackHQ/paystack-android) libraries can help.
 
 Accepting payments in your app after collecting card information can be achieved by charging the card with our SDK. Reusable `authorization code`s from such transaction from can be used from your backend to charge the cards directly.

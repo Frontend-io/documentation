@@ -1,3 +1,5 @@
+# Android
+
 The Paystack Android SDK allows businesses using Paystack to collect payments within their Android app.
 
 The SDK shoulders the burden of PCI compliance, allowing your app to send card information directly to Paystack servers where we can process them. All your server needs to do is call Paystack to verify the status of the transaction. The SDK also validates card details client side and provides an interface for collecting additional verification like card PIN and OTP.

@@ -1,3 +1,5 @@
+# Generating a link using the API
+
 This payment method provides an authorization URL which can be used to complete a payment. It is implemented by directly calling the [initialize transaction](https://developers.paystack.co/v2.0/reference#initialize-a-transaction) endpoint. The authorization URL can only be used for one transaction so you will need to generate a new authorization url for a new transaction.
 
 When the payment is successful, we will call your callback URL (as setup in your dashboard or while initializing the transaction) and return the reference sent in the first step as a query parameter.

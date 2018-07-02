@@ -1,3 +1,5 @@
+# Verifying the transaction
+
 When a payment is completed, you need a way to check that the transaction was successful before providing value to the customer.
 
 Your script needs to 

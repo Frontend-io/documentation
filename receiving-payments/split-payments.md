@@ -1,3 +1,5 @@
+# Split Payments
+
 The split payments feature enables you split transaction fees across two accounts - the main account which is the Paystack merchant and a subaccount.
 
 An ideal scenario for this feature will be a marketplace platform that sells goods on behalf of its vendors. Paystack can automatically split the payouts such that the vendor's bank account is credited with his share and the platform owner gets credited with his own fees too. The good news is that we have built this in such a way that it can work across multiple use cases.
